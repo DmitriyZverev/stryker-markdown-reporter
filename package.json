@@ -1,0 +1,61 @@
+{
+  "name": "stryker-markdown-reporter",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": "./index.js",
+  "description": "StrykerJS reporter plugin that writes mutation testing results as a Markdown table",
+  "keywords": [
+    "stryker",
+    "stryker-plugin",
+    "stryker-reporter",
+    "mutation-testing",
+    "mutation-testing-report",
+    "reporter",
+    "markdown"
+  ],
+  "homepage": "https://github.com/DmitriyZverev/stryker-markdown-reporter",
+  "bugs": {
+    "url": "https://github.com/DmitriyZverev/stryker-markdown-reporter/issues",
+    "email": "opensource@zver.dev"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Dmitriy Zverev",
+    "email": "opensource@zver.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DmitriyZverev/stryker-markdown-reporter.git"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "rm -rf .package && npx tsc --outDir .package && cp package.json LICENSE README.md .package",
+    "analyzer:code:fix": "npx eslint --no-error-on-unmatched-pattern --fix --ext .ts,.tsx,.js .",
+    "analyzer:code:check": "npx eslint --no-error-on-unmatched-pattern --ext .ts,.tsx,.js .",
+    "analyzer:api:check": "npx api-extractor run --local --verbose",
+    "formatter:fix": "npx prettier --write \"**/*.{ts,tsx,js,json,yml,md,html}\"",
+    "formatter:check": "npx prettier --check \"**/*.{ts,tsx,js,json,yml,md,html}\"",
+    "test": "npx vitest run"
+  },
+  "dependencies": {
+    "@stryker-mutator/api": "^10.0.0"
+  },
+  "peerDependencies": {
+    "@stryker-mutator/core": "^10.0.0"
+  },
+  "devDependencies": {
+    "@dmitriyzverev/eslint-config": "3.0.1",
+    "@dmitriyzverev/prettier-config": "2.0.0",
+    "@dmitriyzverev/typescript-config": "1.1.1",
+    "@microsoft/api-extractor": "7.59.1",
+    "@stryker-mutator/core": "10.0.0",
+    "@types/node": "24.13.5",
+    "@vitest/coverage-v8": "5.0.1",
+    "eslint": "8.57.1",
+    "prettier": "3.9.7",
+    "typescript": "5.9.3",
+    "vitest": "5.0.1"
+  }
+}

@@ -1,0 +1,15 @@
+name: Check pull request
+on:
+    - pull_request
+jobs:
+    build:
+        name: Build
+        uses: DmitriyZverev/.github/.github/workflows/build.yml@v2.0.0-dev.5
+    analyze:
+        name: Analyze
+        uses: DmitriyZverev/.github/.github/workflows/analyze.yml@v2.0.0-dev.5
+        needs:
+            - build
+    test:
+        name: Test
+        uses: DmitriyZverev/.github/.github/workflows/test.yml@v2.0.0-dev.5
